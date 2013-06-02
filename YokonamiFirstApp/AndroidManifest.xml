@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.yokonamifirstapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.yokonamifirstapp.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.yokonamifirstapp.SendTextActivity"
+            android:label="@string/title_activity_send_text"
+            android:parentActivityName="com.example.yokonamifirstapp.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.yokonamifirstapp.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.yokonamifirstapp.HelloWorldActivity"
+            android:label="@string/title_activity_hello_world"
+            android:parentActivityName="com.example.yokonamifirstapp.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.yokonamifirstapp.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.yokonamifirstapp.PuyoScoreActivity"
+            android:label="@string/title_activity_puyo_score"
+            android:parentActivityName="com.example.yokonamifirstapp.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.yokonamifirstapp.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.yokonamifirstapp.DragDropActivity"
+            android:label="@string/title_activity_drag_drop"
+            android:parentActivityName="com.example.yokonamifirstapp.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.yokonamifirstapp.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>

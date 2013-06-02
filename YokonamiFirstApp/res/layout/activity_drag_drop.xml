@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+      android:id="@+id/layout_activity_drag_drop"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".DragDropActivity" >
+
+	<ImageView
+	    android:id="@+id/tramp_sample"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center_vertical|center_horizontal"
+	    android:contentDescription="@string/description_tramp_sample"
+	    android:gravity="left" />
+
+	<ImageView
+	    android:id="@+id/dropped_sample"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="top"
+	    android:contentDescription="@string/description_tramp_sample"
+	    android:gravity="right" />
+
+</LinearLayout>
