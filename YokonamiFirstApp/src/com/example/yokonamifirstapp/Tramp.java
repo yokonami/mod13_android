@@ -1,6 +1,8 @@
 package com.example.yokonamifirstapp;
 
 public class Tramp {
+	public static final int N_SUIT = 4;
+	public static final int N_NUMBER = 13;
 	private int suit;
 	public static final String[] suitExpression = {"heart", "diamond", "spade", "club"};
 	private int number;
@@ -9,11 +11,11 @@ public class Tramp {
 	public Tramp(int serialNumber){
 		this.suit = serialNumber%4;
 		this.number = serialNumber%13 + 1;
-		setImage(R.drawable.tramp);
 	}
-	public Tramp(int suit, int number){
-		this.suit = suit;
-		this.number = number;
+	public Tramp(int serialNumber, int resID){
+		this.suit = serialNumber%4;
+		this.number = serialNumber%13 + 1;
+		this.image = resID;
 	}
 	public void setImage(int d){
 		this.image = d;

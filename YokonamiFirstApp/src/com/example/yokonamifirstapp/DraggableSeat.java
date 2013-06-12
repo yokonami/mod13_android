@@ -5,30 +5,25 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-public class DraggableSeat extends ImageView implements SeatColleague{
-	private Activity mediator;
-	private Tramp tramp;
-	public DraggableSeat(Context c, Tramp t){
+public class DraggableSeat extends SeatColleague {
+	private String owner;
+	public DraggableSeat(Context c, Tramp t, String owner){
 		super(c);
-		changeTramp(t);		
+		setTopTramp(t);
+		this.owner = owner;
 	}
-	@Override
-	public void setMediator(Activity mediator) {
-		this.mediator = mediator;
+	public String getOwner(){
+		return owner;
 	}
-	@Override
-	public void changeTramp(Tramp tramp) {
-		this.tramp = tramp;
-		this.setImageResource(tramp.getImage());
+	public DraggableSeat(Context c, String owner){
+		super(c);
+		this.owner = owner;
 	}
 	@Override
 	public Tramp getTramp(){
 		return this.tramp;
 	}
 	public void reveal(){
-		int i = 2;
-		String imageName = "tramp" + i;
-		int resID = getResources().getIdentifier(imageName, "drawable", "com.example.yokonamifirstapp");
-		setImageResource(resID);
+		this.mediator.offerServe((SeatColleague)this);
 	}
 }

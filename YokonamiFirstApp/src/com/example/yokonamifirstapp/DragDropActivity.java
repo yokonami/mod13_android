@@ -14,6 +14,7 @@ import android.view.View;
 import android.content.ClipData;
 import android.content.ClipDescription;
 import java.util.*;
+import android.content.Context;
 
 public class DragDropActivity extends Activity {
 
@@ -25,9 +26,14 @@ public class DragDropActivity extends Activity {
 		setupActionBar();
 
 		// get layout
-		LinearLayout layout = (LinearLayout)findViewById(R.id.layout_activity_drag_drop);
+		//LinearLayout layout = (LinearLayout)findViewById(R.id.layout_activity_drag_drop);
+		
+		Mediator mediator = new Mod13SpeedMediator((Context)this);
+		mediator.createColleagues((Context)this);
+		mediator.startGame();
 		
 		// create draggableSeat
+		/*
 		DraggableSeat dSeat = new DraggableSeat(this, new Tramp(1));
 		//dSeat.setMediator(mediator);
 		dSeat.setMediator(this);
@@ -43,16 +49,40 @@ public class DragDropActivity extends Activity {
 	                        (Object)v,      // no need to use local data
 	                        0          // flags (not currently used, set to 0)
 	            );
+				System.out.println("onTouch");
 				return true;
 			}
 		});
 		layout.addView(dSeat);
+		*/
+		// create draggableSeat
+		/*
+		DraggableSeat dSeat2 = new DraggableSeat(this, new Tramp(1));
+		//dSeat.setMediator(mediator);
+		dSeat2.setMediator(this);
+		dSeat2.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				ClipData.Item item = new ClipData.Item(String.valueOf(v.getTag()));
+				ClipData dragData = new ClipData(String.valueOf(v.getTag()), new String[] {ClipDescription.MIMETYPE_TEXT_PLAIN},item);
+				dragData.addItem(item);
+				View.DragShadowBuilder myShadow = new MyDragShadowBuilder(v);
+				 v.startDrag(dragData,  // the data to be dragged
+	                        myShadow,  // the drag shadow builder
+	                        (Object)v,      // no need to use local data
+	                        0          // flags (not currently used, set to 0)
+	            );
+				return true;
+			}
+		});
+		layout.addView(dSeat2);
 		
 		PuttableSeat pSeat = new PuttableSeat(this, new Tramp(2));
 		//pSeat.setMediator(mediator);
 		pSeat.setMediator(this);
 		pSeat.setOnDragListener(new myDragEventListener());
 		layout.addView(pSeat);
+		*/
 	}
 
 	/**

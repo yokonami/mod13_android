@@ -1,10 +1,7 @@
 package com.example.yokonamifirstapp;
-
-public class Mediator {
-	public Mediator(){
-		createColleagues();
-	}
-	public void createColleagues(){
-		
-	}
+import android.content.Context;
+interface Mediator {
+	public abstract void createColleagues(Context context);
+	public abstract void startGame();
+	public abstract boolean offerServe(SeatColleague s);
 }

@@ -5,22 +5,14 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.widget.ImageView;
 import android.app.Activity;
-public class PuttableSeat extends ImageView implements SeatColleague {
-	private Activity mediator;
-	private Tramp tramp;
+public class PuttableSeat extends SeatColleague{
 	private State state;
 	public PuttableSeat(Context c, Tramp t){
 		super(c);
-		changeTramp(t);
+		setTopTramp(t);
 	}
-	@Override
-	public void setMediator(Activity mediator) {
-		this.mediator = mediator;
-	}
-	@Override
-	public void changeTramp(Tramp tramp) {
-		this.tramp = tramp;
-		this.setImageResource(tramp.getImage());
+	public PuttableSeat(Context c){
+		super(c);
 	}
 	@Override
 	public Tramp getTramp(){
@@ -41,6 +33,7 @@ public class PuttableSeat extends ImageView implements SeatColleague {
 	}
 	public void informDropped(DraggableSeat d){
 		if(state.equals(State.UNDER_DRAGGABLE)){
+			this.setTopTramp(d.getTopTramp());
 			d.reveal();
 		}
 	}
