@@ -23,7 +23,7 @@ public class DraggableSeat extends SeatColleague {
 	public Tramp getTramp(){
 		return this.tramp;
 	}
-	public void reveal(){
-		this.mediator.offerServe((SeatColleague)this);
+	public boolean reveal(){
+		return this.mediator.offerServe((SeatColleague)this);
 	}
 }

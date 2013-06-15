@@ -32,9 +32,13 @@ public class PuttableSeat extends SeatColleague{
 		}
 	}
 	public void informDropped(DraggableSeat d){
-		if(state.equals(State.UNDER_DRAGGABLE)){
-			this.setTopTramp(d.getTopTramp());
-			d.reveal();
+		if(state.equals(State.UNDER_DRAGGABLE) ){
+			Tramp willPut = d.getTopTramp();
+			if(willPut != null && mediator.canPut(1, willPut)){
+				if(d.reveal()){
+					this.setTopTramp(willPut);
+				}
+			}
 		}
 	}
 	public State getState(){
